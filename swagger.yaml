@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  description: "API template"
+  version: "0.0.0"
+  title: "API template"
+servers:
+  - url: 'http://localhost:3000/'
+paths:
+  /users:
+    get:
+      tags:
+        - "users"
+      summary: "It should send a list of users"
+  /example/{pathParam}:
+    get:
+      tags:
+        - "resource"
+      parameters:
+        - name: pathParam
+          in: path
+          description: A variable value passed on the path part of the URL
+          required: true
+          schema:
+            type: string
+          example: value1
+        - name: filter
+          in: query
+          schema:
+            type: string
+          description: A variable value passed on the querystring part of the URL
+      summary: "This is an example to show you a definition of an endpoint"
