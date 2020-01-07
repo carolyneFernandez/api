@@ -27,6 +27,7 @@ const sequelize = new Sequelize(DB_name, user, pwd, {
 
 // TODO: Add here all your mapped models of your database
 const Users = sequelize.import(path.join(__dirname, 'users'));
+const FLights = sequelize.import(path.join(__dirname, 'flights'));
 
 sequelize.sync()
 	.then(() => {
@@ -41,6 +42,7 @@ sequelize.sync()
 
 // TODO: And export them
 exports.Users = Users;
+exports.FLights = FLights;
 
 // Exporting sequelize object to allow raw queries if needed
 exports.sequelize = sequelize;

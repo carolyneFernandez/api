@@ -22,12 +22,29 @@ components:
           type: string
         status:
           type: string
+    User:
+      type: object
+      properties:
+        username:
+          type: string
 paths:
   /users:
     get:
       tags:
         - "users"
       summary: "It should send a list of users"
+      parameters:
+        - in: query
+          name: username
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The list of user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
   /flights:
     get:
       tags:
@@ -76,6 +93,8 @@ paths:
                 destination:
                   type: string
                 date:
+                  type: string
+                status:
                   type: string
               required:
                 - flightNumber
